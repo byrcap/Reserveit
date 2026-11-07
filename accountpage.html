@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulldog Facilities</title>
+    <link rel="stylesheet" href="accountpagestyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="welcome-text">WELCOME TO RESERVE IT, NU LAGUNA!</h1>
+
+        <input type="checkbox" id="register-toggle" style="display: none;">
+
+        <div class="form-box" id="login-form">
+            <h2 class="title">
+                <img src="bullformlogo.png" alt="Bulldog Logo" class="logo">
+                <span style="display: block; 
+                text-align: center;
+                right: 10px;
+                position: relative;"
+                >BULLDOG FACILITIES</span>
+            </h2>
+
+            <h3 class="subtitle">Log-in</h3>
+            
+            <form action="login.php" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <div class="remember-forgot">
+                    <label> Remember me <input type="checkbox"> </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="register-btn">Log in</button>
+            </form>
+            
+            <p class="register-link">
+                <label for="register-toggle" style="cursor: pointer;">Sign up or Register</label>
+            </p>
+        </div>
+
+        <div class="form-box" id="register-form">
+            <label for="register-toggle" class="back-btn">←</label>
+
+            <h2 class="title" 
+            style="text-align: center;
+            left: 35px;
+            position: relative;"
+            >BULLDOG FACILITIES</h2>
+
+            <img src="bulldog1.png" alt="Bulldog Logo" class="logo">
+            <h3 class="subtitle1">REGISTRATION FORM</h3>
+
+            <form action="register.php" method="post">
+                <input type="text" name="first_name" placeholder="Enter your first name" required>
+                <input type="text" name="last_name" placeholder="Enter your last name" required>
+
+                <label for="account_type" 
+                style="font-size: 12px; 
+                color: #575656;"
+                >Account Type:</label>
+
+                <select name="account_type" required>
+                    <option value="Student / Professor">Student / Professor</option>
+                    <option value="Alumni">Alumni</option>
+                    <option value="Outsider">Outsider</option>
+                </select>
+
+                <input type="text" name="email" placeholder="Enter your email address" required>
+                <input type="text" name="phonenumber" placeholder="Enter your phone number" required>
+                <input type="text" name="username" placeholder="Create Username" required>
+
+                <input type="password" name="password" placeholder="Create Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+                <!-- Register button for the registration form -->
+                <button type="submit" class="register-btn">Register!</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

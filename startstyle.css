@@ -1,0 +1,73 @@
+body {
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    
+    /* Animation */
+    animation: slideDown 1.5s ease-in-out;
+}
+
+/* Keyframes for sliding effect */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Center content */
+.container {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in effect for the content */
+}
+
+/* Keyframes for fading in content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Logo styling */
+.logo img {
+    width: 750px;
+    height: auto;
+    animation: slideDown 1.5s ease-in-out; /* Apply same effect to logo */
+    margin-bottom: 20px; /* Adjust margin to create space below the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(50px); /* Bring down on the Y axis */
+}
+
+/* login or signup button */
+.cta-button {
+    margin: 20px auto; /* Center horizontally */
+    display: block; /* Make the button a block element */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: rgba(226, 204, 0, 0.747);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover effect for button */
+.cta-button:hover {
+    background: rgba(0, 86, 179, 0.9);
+    transform: scale(1.1); /* Slight zoom effect */
+}

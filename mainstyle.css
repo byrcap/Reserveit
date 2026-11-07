@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #392783, gold);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0e0e52;
+    padding: 15px 30px;
+}
+.logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #007bff, #f3ff4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    font-weight: lighter;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(243, 255, 77, 0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: gold;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Moves items to the left */
+    gap: 55px;
+    padding: 15px 50px; /* Increase left padding */
+    flex-wrap: nowrap;
+}
+
+/* Navigation Links */
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    transition: color 0.3s ease-in-out;
+    position: relative; /* Needed for absolute positioning of underline */
+    white-space: nowrap;
+}
+
+/* Hover Effect for Links */
+.nav a:hover {
+    color: gold;
+}
+
+/* Underline Slide-In Effect */
+.nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: gold;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+}
+
+/* Expand underline from the center */
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Logout Button */
+.logout {
+    background: gold;
+    color: white;
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logout Button Hover Effect */
+.logout:hover {
+    background: #0c0c40;
+    color: gold;
+    border-color: gold;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.booking-section {
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.booking-section h1 {
+    color: navy;
+    font-size: 2.5rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.highlight {
+    color: yellow;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="date"],
+select {
+    width: 90%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+}
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.confirm {
+    width: 100%;
+    background: #0e0e52;
+    color: white;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-profile {
+    text-align: center;
+    width: 40%;
+}
+
+.user-profile h2 {
+    font-size: 2rem;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.user-profile p {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+input[type="time"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Reserve It! NU Laguna</title>
+  
+  <!-- Google Fonts (Rubik) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  
+  <!-- SweetAlert2 (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="startstyle.css" />
+  
+  <style>
+    /* Override only SweetAlert2 font to Rubik */
+    .swal2-title,
+    .swal2-html-container,
+    .swal2-confirm,
+    .swal2-cancel {
+      font-family: 'Rubik', sans-serif !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="newbgLogo.png" alt="Reserve It! NU Laguna">
+      <!-- Button to trigger the auto-close SweetAlert2 with custom style -->
+      <button class="cta-button" id="ctaButton">LOG IN OR SIGN UP</button>
+    </div>
+  </div>
+
+  <!-- Script for the auto-close SweetAlert2 with custom style -->
+  <script>
+    document.getElementById("ctaButton").addEventListener("click", function() {
+      let timerInterval;
+      Swal.fire({
+        title: "Connecting to client",
+        html: "Connecting in <b></b> milliseconds.",
+        timer: 1777,           
+        timerProgressBar: true,
+        width: 600,            // Custom width
+        padding: "3em",        // Custom padding
+        color: "#0e0e52",      
+        background: "#fff url('pic2.jpg')", // White background with image
+        backdrop: `
+          rgba(0,0,123,0.4)
+          no-repeat
+        `,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then(() => {
+        // After the alert closes, redirect to accountpage.html
+        window.location.href = "accountpage.html";
+      });
+    });
+  </script>
+</body>
+</html>

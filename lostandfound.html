@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Lost and Found</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="lostandfoundstyle.css" />
+  <link rel="stylesheet" href="header.css" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo-container">
+      <img src="newbgLogo.png" alt="Reserve It! NU Laguna" class="logo-img" />
+      <div class="logo-text">RESERVE IT! NU LAGUNA</div>
+    </div>
+
+    <!-- Navigation Links Inside Header -->
+    <nav class="nav">
+      <a href="main.php">Home</a>
+      <a href="editprof.html">Edit Profile</a>
+      <button class="logout">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Lost and Found Form (Main Form) -->
+  <div class="form-container" id="lostAndFoundForm">
+      <h2>Lost and Found</h2>
+      <p>Locate lost or found items! Our Online Lost & Found can help you find what you are looking for.</p>
+
+      <label for="item">What was Lost or Found *</label>
+      <span class="info-text">(Tumbler, Jacket, Smartphone, Wallet, etc.) This field may auto-populate</span>
+      <input type="text" id="item" name="item" placeholder="Item Lost" required>
+
+      <label for="location">Where Lost or Found *</label>
+      <span class="info-text2">Please provide an approximate location of the lost property (Gym, Hoops Center, etc.)</span>
+      <select id="location" name="location" required onchange="toggleOtherInput()">
+          <option value="">Select</option>
+          <option value="Gym">Gym</option>
+          <option value="hoops">Hoops Center</option>
+          <option value="tennis">Tennis Court</option>
+          <option value="aquatic">Aquatic Center</option>
+          <option value="Multipurpose">Multipurpose Court</option>
+          <option value="Dormitel">Dormitel</option>
+          <option value="Other">Other</option>
+      </select>
+
+      <!-- Hidden input field for 'Other' option -->
+      <input type="text" id="otherLocation" name="otherLocation" placeholder="Please specify" style="display: none; margin-top: 10px;">
+
+      <div class="btn-container">
+          <button class="btn" onclick="showLostItemForm()">Submit Lost Items</button>
+          <button class="btn btn-secondary" onclick="showFoundItemForm()">Submit Found Items</button>
+      </div>
+  </div>
+
+  <!-- Lost Item Submission Form (Hidden by Default) -->
+  <div class="form-container" id="lostItemForm" style="display: none;">
+    <h2>Submit Lost Item</h2>
+    <p>Please provide details about the lost item.</p>
+
+    <form action="submit-lost-process.php" method="POST" enctype="multipart/form-data">
+      <label for="lostItem">What was Lost? *</label>
+      <input type="text" id="lostItem" name="lostItem" placeholder="Enter lost item" required>
+
+      <label for="brand">Brand</label>
+      <input type="text" id="brand" name="brand" placeholder="Enter brand (if applicable)">
+
+      <label for="primaryColor">Primary Color *</label>
+      <input type="text" id="primaryColor" name="primaryColor" placeholder="Enter primary color" required>
+
+      <label for="dateLost">Date Lost *</label>
+      <input type="date" id="dateLost" name="dateLost" required>
+
+      <label for="timeLost">Time Lost *</label>
+      <input type="time" id="timeLost" name="timeLost" required>
+
+      <label for="uploadImage">Upload Image</label>
+      <input type="file" id="uploadImage" name="uploadImage" accept="image/*">
+
+      <div class="btn-container">
+        <button type="submit" class="btn">Submit Lost Item</button>
+        <button type="button" class="btn btn-secondary" onclick="hideForms()">Back</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Found Item Submission Form (Hidden by Default) -->
+  <div class="form-container" id="foundItemForm" style="display: none;">
+    <h2>Submit Found Item</h2>
+    <p>Please provide details about the found item.</p>
+    <form action="submit-found-process.php" method="POST" enctype="multipart/form-data">
+      <label for="foundItem">What was Found? *</label>
+      <input type="text" id="foundItem" name="foundItem" placeholder="Enter found item" required>
+  
+      <label for="brand">Brand</label>
+      <input type="text" id="brandFound" name="brandFound" placeholder="Enter brand (if applicable)">
+  
+      <label for="primaryColorFound">Primary Color *</label>
+      <input type="text" id="primaryColorFound" name="primaryColorFound" placeholder="Enter primary color" required>
+  
+      <label for="dateFound">Date Found *</label>
+      <input type="date" id="dateFound" name="dateFound" required>
+  
+      <label for="timeFound">Time Found *</label>
+      <input type="time" id="timeFound" name="timeFound" required>
+  
+      <label for="uploadImageFound">Upload Image</label>
+      <input type="file" id="uploadImageFound" name="uploadImageFound" accept="image/*">
+  
+      <div class="btn-container">
+        <button type="submit" class="btn">Submit Found Item</button>
+        <button type="button" class="btn btn-secondary" onclick="hideForms()">Back</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <!-- JavaScript Section -->
+  <script>
+    function toggleOtherInput() {
+        var locationSelect = document.getElementById("location");
+        var otherInput = document.getElementById("otherLocation");
+
+        if (locationSelect.value === "Other") {
+            otherInput.style.display = "block";
+            otherInput.setAttribute("required", "true");
+        } else {
+            otherInput.style.display = "none";
+            otherInput.removeAttribute("required");
+        }
+    }
+
+    function showLostItemForm() {
+        document.getElementById("lostAndFoundForm").style.display = "none";
+        document.getElementById("lostItemForm").style.display = "block";
+        document.getElementById("foundItemForm").style.display = "none";
+    }
+
+    function showFoundItemForm() {
+        document.getElementById("lostAndFoundForm").style.display = "none";
+        document.getElementById("lostItemForm").style.display = "none";
+        document.getElementById("foundItemForm").style.display = "block";
+    }
+
+    function hideForms() {
+        document.getElementById("lostAndFoundForm").style.display = "block";
+        document.getElementById("lostItemForm").style.display = "none";
+        document.getElementById("foundItemForm").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #392783, gold);
+    color: white;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo Image */
+.logo-img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Gradient Text Effect with Glow */
+.logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #007bff, #f3ff4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    font-weight: lighter;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(243, 255, 77, 0.3);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Moves items to the left */
+    gap: 55px;
+    padding: 15px 50px; /* Increase left padding */
+    flex-wrap: nowrap;
+}
+
+/* Navigation Links */
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    transition: color 0.3s ease-in-out;
+    position: relative; /* Needed for absolute positioning of underline */
+    white-space: nowrap;
+}
+
+/* Hover Effect for Links */
+.nav a:hover {
+    color: gold;
+}
+
+/* Underline Slide-In Effect */
+.nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: gold;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+}
+
+/* Expand underline from the center */
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Logout Button */
+.logout {
+    background: gold;
+    color: white;
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logout Button Hover Effect */
+.logout:hover {
+    background: #0c0c40;
+    color: gold;
+    border-color: gold;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 90px;
+}
+
+.left-section {
+    flex: 1;
+    width: 60%;
+}
+
+.left-section h1 {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideIn 1s ease-out forwards, moveSide 3s linear 1s infinite alternate;
+    margin-top: 100px; /* Adjust this value to move it down */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveSide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(20px);
+    }
+}
+
+/* Right Section (Profile) */
+.right-section {
+    flex: 1;
+    width: 30%;
+    text-align: center;
+    margin-top: 100px; /* Adjust as needed */
+}
+
+/* Dropdowns (Reservation Status, Cancellation, Reschedule) */
+.dropdown {
+    margin-top: 50px; /* Adjust as needed */
+    transform: translateY(-35px); /* Moves upwards */
+}
+
+.dropdown summary {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px; /* Make it stand out */
+}
+
+/* Fade in the .notice block when details is opened */
+.dropdown[open] .notice {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* General Typography */
+h1 {
+    font-size: 40px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+    color: yellow;
+}
+
+/* Each details block (white box) */
+details {
+    width: 100%;
+    background: white;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #ddd;
+}
+
+/* Hover effect for each details box */
+details:hover {
+    background: #f0f0f0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-30px);
+}
+
+/* Summary (the clickable title of each details) */
+details summary {
+    font-weight: bold;
+    font-size: 16px;
+    outline: none; /* Remove focus outline */
+}
+
+/* Notice content inside the details */
+.notice {
+    margin-top: 10px;
+    padding: 15px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    font-family: 'Rubik', sans-serif;
+    font-style: italic;
+}
+
+.notice h3 {
+    margin-top: 0;
+}
+
+/* Profile Picture */
+.profile-pic img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* Account Type */
+.account-type {
+    font-weight: bold;
+}
+
+/* "Learn More" Link */
+.learn-more {
+    color: rgb(20, 20, 131);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+.learn-more:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Calendar & Time Inputs */
+.calendar input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Confirm Button */
+.confirm {
+    margin-top: 20px;
+    width: 100%;
+    background: #0e0e52;
+    color: white;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Facility Select in Reschedule Section */
+.facility select {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    appearance: none; /* Hide default arrow in some browsers */
+    background: white;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="time"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.time select {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Edit Profile</title>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- SweetAlert2 (CDN) -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="editprofstyle.css" />
+        <link rel="stylesheet" href="header.css" />
+        <link rel="stylesheet" href="editprofstyle.css" />
+    </head>
+    <body>
+        <!-- Container for welcome text -->
+        <div class="container">
+            <h1 class="welcome-text">WELCOME TO RESERVE IT, NU LAGUNA!</h1>
+        </div>
+
+        <!-- Header Section -->
+        <header>
+            <div class="logo-container">
+            <img src="newbgLogo.png" alt="Reserve It! NU Laguna" class="logo-img" />
+            <div class="logo-text">RESERVE IT! NU LAGUNA</div>
+            </div>
+            <nav class="nav">
+            <a href="main.php">Home</a>
+            <a href="lostandfound.html">Lost and Found</a>
+            <button class="logout">Logout</button>
+            </nav>
+        </header>
+
+        <!-- Edit Profile Form Box (Login prompt removed) -->
+        <div class="form-box" id="register-form">
+            <!-- (Back button removed as it's no longer needed) -->
+            <h2 class="title" style="text-align: center; left: 25px; position: relative;">
+            BULLDOG FACILITIES
+            </h2>
+            <img src="bulldog1.png" alt="Bulldog Logo" class="logo" />
+            <h3 class="subtitle1">EDIT PROFILE</h3>
+
+            <!-- Edit Profile Form -->
+            <form id="registerForm" action="register.php" method="post">
+            <input type="text" name="first_name" placeholder="Enter your first name" required />
+            <input type="text" name="last_name" placeholder="Enter your last name" required />
+
+            <label for="account_type" style="font-size: 12px; color: #575656;">Account Type:</label>
+            <select name="account_type" required>
+                <option value="Student / Professor">Student / Professor</option>
+                <option value="Alumni">Alumni</option>
+                <option value="Outsider">Outsider</option>
+            </select>
+
+            <input type="text" name="email" placeholder="Enter New email address" required />
+            <input type="text" name="phonenumber" placeholder="Enter New phone number" required />
+            <input type="text" name="username" placeholder="Create New Username" required />
+
+            <input type="password" name="password" placeholder="Create New Password" required />
+            <input type="password" name="confirm_password" placeholder="Confirm New Password" required />
+
+            <!-- Edit Profile button -->
+            <button type="submit" class="register-btn">Edit Profile!</button>
+            </form>
+        </div>
+
+        <!-- SweetAlert2 Script for Edit Profile -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            const registerForm = document.getElementById("registerForm");
+
+            registerForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent normal submission
+
+                Swal.fire({
+                title: "Finalize Editing",
+                text: "Are you sure you want to save these changes?",
+                background: "#fff url('yourGradientImage.png')",
+                backdrop: "rgba(0,0,0,0.4)",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Update!",
+                cancelButtonText: "No, Cancel!"
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                    title: "Profile Updated!",
+                    text: "Your profile has been updated successfully.",
+                    icon: "success",
+                    confirmButtonText: "Alright!"
+                    }).then(() => {
+                    registerForm.submit();
+                    });
+                }
+                });
+            });
+            });
+        </script>
+    </body>
+</html>

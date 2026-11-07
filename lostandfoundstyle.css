@@ -1,0 +1,276 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #392783, gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Container for welcome text */
+.title {
+    position: absolute;
+    top: 16%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+.form-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: navy !important; /* Forces the color change */
+    font-size: 30px !important;
+}
+label[for="item"] {
+    font-family: 'Noto Sans Warang Citi',sans-serif;
+    color: navy;
+}
+
+/* General styling for info text */
+.info-text, 
+.info-text2 {
+    font-family: 'Noto Sans Warang Citi', sans-serif;
+    color: gray;
+    font-size: 13px;
+}
+
+/* Additional italic style for .info-text2 */
+.info-text2 {
+    font-style: italic;
+}
+
+label[for="location"]{
+    font-family: 'Noto Sans Warang Citi',sans-serif;
+    color: navy
+}
+/* Lost and Found Header */
+.lostandfound-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
+    font-style: italic;
+    display: inline-block;
+    background: linear-gradient(90deg, gold, navy);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: wipe-in 1.5s ease-out forwards, wave 1.5s infinite ease-in-out;
+}
+
+/* Wipe-in effect */
+@keyframes wipe-in {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Wave effect */
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+/* Reset body margin */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo Image */
+.logo-img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Gradient Text Effect with Glow */
+.logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #007bff, #f3ff4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(243, 255, 77, 0.3);
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 55px;
+    padding: 15px 50px;
+    flex-wrap: nowrap;
+}
+
+/* Navigation Links */
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* Hover Effect for Links */
+.nav a:hover {
+    color: gold;
+}
+
+/* Underline Slide-In Effect */
+.nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: gold;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+}
+
+/* Expand underline from the center */
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Logout Button */
+.logout {
+    background: gold;
+    color: white;
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logout Button Hover Effect */
+.logout:hover {
+    background: #0c0c40;
+    color: gold;
+    border-color: gold;
+}
+
+/* Lost and Found Form */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    text-align: left;
+    margin-top:150px;
+    padding-top: 5px;
+    
+}
+
+.form-container h2 {
+    font-size: 50px !important;
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds a soft shadow */
+}
+
+
+.form-container p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+.form-container input, 
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Button */
+.btn {
+    background: gold;
+    color: white;
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background: #0c0c40;
+    color: gold;
+    border-color: gold;
+}
+
+
+.btn-secondary {
+    background: white;
+    color: navy;
+    border: 2px solid #2D5C99;
+}
+
+.btn-secondary:hover {
+    background: navy;
+    color: white;
+}
